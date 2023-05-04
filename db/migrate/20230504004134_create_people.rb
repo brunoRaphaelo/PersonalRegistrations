@@ -7,7 +7,7 @@ class CreatePeople < ActiveRecord::Migration[7.0]
 
       t.date :birth_date, null: false
 
-      t.uuid :uuid, index: true, null: false
+      t.uuid :uuid, index: true, null: false, default: 'gen_random_uuid()', unique: true
 
       t.timestamps
     end
