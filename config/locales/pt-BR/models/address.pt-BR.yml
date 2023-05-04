@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      address:
+        one: &address Endereço
+        other: &addresses Endereços
+    attributes:
+      address:
+        person_id: Pessoa
+        street: Rua
+        city: Cidade
+        state: Estado
+        country: País
+        postal_code: Código postal
+        uuid: UUID
+        created_at: Criado em
+        updated_at: Editado em

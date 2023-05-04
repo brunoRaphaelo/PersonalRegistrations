@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    models:
+      person:
+        one: &person Pessoa
+        other: &people Pessoas
+    attributes:
+      person:
+        name: Nome
+        email: E-mail
+        phone: Celular/Telefone
+        birth_date: Data de nascimento
+        uuid: UUID
+        created_at: Criado em
+        updated_at: Editado em
+    errors:
+      models:
+        person:
+          attributes:
+            base:
+              invalid_date: A data de nascimento não é válida

@@ -1,0 +1,8 @@
+pt-BR:
+  errors:
+    messages:
+      bad_request: Requisição inválida.
+      parameter_missing: 'Parâmetro faltando: %{parameter}.'
+      not_found: Ação não encontrada.
+      record_not_found: '%{record} não encontrado(a).'
+      unprocessable_entity: Não foi possível processar requisição.
