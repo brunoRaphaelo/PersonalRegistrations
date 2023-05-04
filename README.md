@@ -1,24 +1,19 @@
-# README
+# PersonalRegistrations
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> API para o cadastro de pessoas
 
-Things you may want to cover:
+## **Tecnologias**
 
-* Ruby version
+* [Ruby 3.1.3](https://www.ruby-lang.org/)
+* [Rails 7.0.4 API Only](https://guides.rubyonrails.org/index.html)
+* [PostgreSQl 9.4+](https://www.postgresql.org/)
 
-* System dependencies
+## **Estrutura**
 
-* Configuration
+### *Pessoas*
 
-* Database creation
+Entidade `Person` que será responsável por registrar as pessoas.
 
-* Database initialization
+### *Endereços*
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Entidade `Address` que será responsável por registrar os endereços das pessoas.
