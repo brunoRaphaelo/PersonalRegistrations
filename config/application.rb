@@ -27,11 +27,31 @@ module PersonRegistrations
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
+
+    # Brazilian timezone
+    config.time_zone = 'Brasilia'
+
+    # Default encoding
+    config.encoding = 'utf-8'
+
+    # Permitted locales available for the application
+    I18n.available_locales = %i[en pt-BR]
+
+    # pt-BR locales files
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}')]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/**/*.{rb,yml}')]
+    config.i18n.default_locale = :'pt-BR'
+
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Skip views, helpers and assets when generating a new resource.
+    config.api_only = true
+
+    config.generators do |g|
+      g.factory_bot suffix: 'factory'
+    end
   end
 end
