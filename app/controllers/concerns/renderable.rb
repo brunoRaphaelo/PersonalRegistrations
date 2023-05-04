@@ -24,13 +24,7 @@ module Renderable
     request.headers['default-key-transform']&.to_sym
   end
 
-  def total_of(records)
-    if records.respond_to?(:length)
-      records.length
-    elsif records.respond_to?(:count)
-      records.count
-    else
-      records.size
-    end
+  def total_of(resources)
+    resources.respond_to?(:length) ? resources.length : 1
   end
 end

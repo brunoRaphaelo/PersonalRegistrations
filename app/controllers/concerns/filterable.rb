@@ -11,12 +11,7 @@ module Filterable
 
         next unless params_item && objects.respond_to?(scope)
 
-        objects = if (params_item.to_s != 'true') && (params_item.to_s != 'false')
-                    objects.send(scope,
-                                 params_item)
-                  else
-                    objects.send(scope)
-                  end
+        objects = objects.send(scope, params_item)
       end
 
       objects
