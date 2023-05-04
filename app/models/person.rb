@@ -1,6 +1,6 @@
 class Person < ApplicationRecord
   # Has many associations
-  has_many :addresses, inverse_of: :person, with_foreign_key: :person_id, dependent: :destroy
+  has_many :addresses, inverse_of: :person, foreign_key: :person_id, dependent: :destroy
 
   # Validations
   validates :name, :email, :phone, :birth_date, presence: true

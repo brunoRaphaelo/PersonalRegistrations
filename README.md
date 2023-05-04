@@ -1,4 +1,4 @@
-# PersonalRegistrations
+# PersonRegistrations
 
 > API para o cadastro de pessoas
 

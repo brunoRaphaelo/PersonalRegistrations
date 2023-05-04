@@ -1,16 +1,16 @@
-class PersonsController < ApplicationController
+class PeopleController < ApplicationController
   before_action :set_person, only: %i[show update destroy]
 
-  # GET /persons
+  # GET /people
   def index
-    @persons = ::Person.all
+    @people = ::Person.all
 
-    @persons = apply_filters(@persons, :by_id)
+    @people = apply_filters(@people, :by_id)
 
-    render_json_for(@persons, status: :ok)
+    render_json_for(@people, status: :ok)
   end
 
-  # POST /persons/
+  # POST /people/
   def create
     @person = ::Person.new(person_params)
 
@@ -21,12 +21,12 @@ class PersonsController < ApplicationController
     end
   end
 
-  # GET /persons/:id
+  # GET /people/:id
   def show
     render_json_for(@person, status: :ok)
   end
 
-  # PATCH/PUT /persons/:id
+  # PATCH/PUT /people/:id
   def update
     if @person.update(person_params)
       render_json_for(@person, status: :ok)
@@ -35,7 +35,7 @@ class PersonsController < ApplicationController
     end
   end
 
-  # DELETE /persons/:id
+  # DELETE /people/:id
   def destroy
     if @person.destroy
       render json: {}, status: :ok
