@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :person do
     name { ::Faker::Name.name }
     email { Faker::Internet.email }
-    phone { Faker::PhoneNumber.cell_phone }
-    birth_date { Faker::Date.birthday }
+    phone { "554#{Faker::Number.number}" }
+    birth_date { Date.today }
   end
 end
