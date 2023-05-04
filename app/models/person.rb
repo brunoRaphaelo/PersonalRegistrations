@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Person < ApplicationRecord
   # Has many associations
   has_many :addresses,
@@ -42,4 +44,3 @@ class Person < ApplicationRecord
     errors.add(:base, :invalid_date)
   end
 end
-

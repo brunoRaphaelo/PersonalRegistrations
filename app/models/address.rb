@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Address < ApplicationRecord
   # Belongs_to associations
   belongs_to :person,
@@ -38,4 +40,3 @@ class Address < ApplicationRecord
   scope :by_postal_code, ->(postal_code) { where(postal_code:) }
   scope :by_person_id, ->(person_id) { where(person_id:) }
 end
-

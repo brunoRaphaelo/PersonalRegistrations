@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Sortable
   extend ActiveSupport::Concern
 
@@ -18,7 +20,9 @@ module Sortable
           sort_direction = sort_directions[index]
           sort_directions_first = sort_directions.first
 
-          sort_direction = sort_directions_first if (sort_directions.size == 1 && sort_directions_first == 'asc') || sort_directions_first == 'desc'
+          if (sort_directions.size == 1 && sort_directions_first == 'asc') || sort_directions_first == 'desc'
+            sort_direction = sort_directions_first
+          end
         else
           sort_direction = 'asc'
         end
