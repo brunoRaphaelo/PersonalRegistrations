@@ -3,9 +3,15 @@ class AddressesController < ApplicationController
 
   # GET /addresses
   def index
-    @addresses = ::Address.all
+    @addresses = ::Address.list
 
-    @addresses = apply_filters(@addresses, :by_id)
+    @addresses = apply_filters(@addresses, :by_id,
+                               :by_street,
+                               :by_city,
+                               :by_state,
+                               :by_country,
+                               :by_postal_code,
+                               :by_person_id)
 
     render_json_for(@addresses, status: :ok)
   end
@@ -47,7 +53,7 @@ class AddressesController < ApplicationController
   private
 
   def set_address
-    @address = ::Address.find(params[:id])
+    @address = ::Address.list.find(params[:id])
   end
 
   def address_params

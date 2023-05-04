@@ -5,7 +5,11 @@ class PeopleController < ApplicationController
   def index
     @people = ::Person.all
 
-    @people = apply_filters(@people, :by_id)
+    @people = apply_filters(@people, :by_id,
+                            :by_name,
+                            :by_email,
+                            :by_phone,
+                            :by_birth_date)
 
     render_json_for(@people, status: :ok)
   end
