@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe AddressesController, type: :controller do
@@ -9,7 +11,7 @@ describe AddressesController, type: :controller do
     end
 
     it 'must call address index with sort options' do
-      get :index, params: { sort_property: 'id', sort_direction: 'desc'  }
+      get :index, params: { sort_property: 'id', sort_direction: 'desc' }
 
       expect(response).to have_http_status :ok
     end
@@ -32,13 +34,13 @@ describe AddressesController, type: :controller do
 
     context 'when create do not have success' do
       it 'must return unprocessable_entity status' do
-        get :create, params: { address: { postal_code: nil} }
+        get :create, params: { address: { postal_code: nil } }
 
         expect(response).to have_http_status :unprocessable_entity
       end
 
       it 'must not have created any new address' do
-        get :create, params: { address: { postal_code: nil} }
+        get :create, params: { address: { postal_code: nil } }
 
         expect(::Address.all).to be_empty
       end
@@ -57,13 +59,13 @@ describe AddressesController, type: :controller do
     let(:address) { create(:address) }
 
     it 'must call address show' do
-      get :show, params: { id: address.id}
+      get :show, params: { id: address.id }
 
       expect(response).to have_http_status :ok
     end
 
     it 'must return exactly object' do
-      get :show, params: { id: address.id}
+      get :show, params: { id: address.id }
 
       expect(response.parsed_body['address']['id']).to eq ::Address.find(address.id).id
     end
@@ -90,7 +92,7 @@ describe AddressesController, type: :controller do
 
     context 'when update do not have success' do
       it 'must return unprocessable_entity status' do
-        get :update, params: { id: address.id, address: { postal_code: nil} }
+        get :update, params: { id: address.id, address: { postal_code: nil } }
 
         expect(response).to have_http_status :unprocessable_entity
       end

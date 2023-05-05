@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe PeopleController, type: :controller do
@@ -9,7 +11,7 @@ describe PeopleController, type: :controller do
     end
 
     it 'must call people index with sort options' do
-      get :index, params: { sort_property: 'id', sort_direction: 'desc'  }
+      get :index, params: { sort_property: 'id', sort_direction: 'desc' }
 
       expect(response).to have_http_status :ok
     end
@@ -32,13 +34,13 @@ describe PeopleController, type: :controller do
 
     context 'when create do not have success' do
       it 'must return unprocessable_entity status' do
-        get :create, params: { person: { name: nil} }
+        get :create, params: { person: { name: nil } }
 
         expect(response).to have_http_status :unprocessable_entity
       end
 
       it 'must not have created any new person' do
-        get :create, params: { person: { name: nil} }
+        get :create, params: { person: { name: nil } }
 
         expect(::Person.all).to be_empty
       end
@@ -57,13 +59,13 @@ describe PeopleController, type: :controller do
     let(:person) { create(:person) }
 
     it 'must call people show' do
-      get :show, params: { id: person.id}
+      get :show, params: { id: person.id }
 
       expect(response).to have_http_status :ok
     end
 
     it 'must return exactly object' do
-      get :show, params: { id: person.id}
+      get :show, params: { id: person.id }
 
       expect(response.parsed_body['person']['id']).to eq ::Person.find(person.id).id
     end
@@ -90,7 +92,7 @@ describe PeopleController, type: :controller do
 
     context 'when update do not have success' do
       it 'must return unprocessable_entity status' do
-        get :update, params: { id: person.id, person: { name: nil} }
+        get :update, params: { id: person.id, person: { name: nil } }
 
         expect(response).to have_http_status :unprocessable_entity
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   defaults format: :json do
     resources :addresses, only: %i[index show create update destroy], controller: 'addresses'

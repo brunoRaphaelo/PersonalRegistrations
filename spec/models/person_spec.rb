@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Person, type: :model do
@@ -10,7 +12,8 @@ RSpec.describe Person, type: :model do
       end
 
       it 'has table name plural translation' do
-        expect(I18n.exists?('activerecord.models.person.other')).to be_truthy, 'Column translation missing: Person(:other)'
+        expect(I18n.exists?('activerecord.models.person.other')).to be_truthy,
+                                                                    'Column translation missing: Person(:other)'
       end
     end
 
@@ -165,7 +168,7 @@ RSpec.describe Person, type: :model do
 
   describe '.create' do
     context 'when try to save a person with a birth_date to the future' do
-      let(:person) { build(:person, birth_date: Date.today + 1.day)}
+      let(:person) { build(:person, birth_date: Date.today + 1.day) }
 
       before { person.save }
 
@@ -179,7 +182,7 @@ RSpec.describe Person, type: :model do
     end
 
     context 'when try to save a person with a birth_date to more than one hundred and fifteen years ago' do
-      let(:person) { build(:person, birth_date: Date.today - 116.years)}
+      let(:person) { build(:person, birth_date: Date.today - 116.years) }
 
       before { person.save }
 
@@ -195,7 +198,7 @@ RSpec.describe Person, type: :model do
 
   describe '#update' do
     context 'when try to update a person with a birth_date to the future' do
-      let(:person) { create(:person)}
+      let(:person) { create(:person) }
 
       before { person.update(birth_date: Date.today + 20.years) }
 
@@ -209,7 +212,7 @@ RSpec.describe Person, type: :model do
     end
 
     context 'when try to save a person with a birth_date to more than one hundred and fifteen years ago' do
-      let(:person) { create(:person)}
+      let(:person) { create(:person) }
 
       before { person.update(birth_date: Date.today - 116.years) }
 

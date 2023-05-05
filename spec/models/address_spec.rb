@@ -1,14 +1,18 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
   describe 'Table' do
     describe 'Translations' do
       it 'has table name singular translation' do
-        expect(I18n.exists?('activerecord.models.address.one')).to be_truthy, 'Column translation missing: Address(:one)'
+        expect(I18n.exists?('activerecord.models.address.one')).to be_truthy,
+                                                                   'Column translation missing: Address(:one)'
       end
 
       it 'has table name plural translation' do
-        expect(I18n.exists?('activerecord.models.address.other')).to be_truthy, 'Column translation missing: Address(:other)'
+        expect(I18n.exists?('activerecord.models.address.other')).to be_truthy,
+                                                                     'Column translation missing: Address(:other)'
       end
     end
 
@@ -19,9 +23,9 @@ RSpec.describe Address, type: :model do
 
       it 'has belongs_to relation' do
         expect(subject).to belong_to(:person)
-                             .class_name('::Person')
-                             .inverse_of(:addresses)
-                             .with_foreign_key(:person_id)
+          .class_name('::Person')
+          .inverse_of(:addresses)
+          .with_foreign_key(:person_id)
       end
 
       it 'has index' do
@@ -185,7 +189,7 @@ RSpec.describe Address, type: :model do
       end
 
       describe '.by_postal_code' do
-        let!(:address) { create(:address, postal_code: 89025410) }
+        let!(:address) { create(:address, postal_code: 89_025_410) }
 
         it 'must be an scope attributes' do
           expect(described_class.by_postal_code('')).to be_an_scope_attributes
